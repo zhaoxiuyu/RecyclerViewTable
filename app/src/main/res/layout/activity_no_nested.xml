@@ -36,7 +36,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="70dp" />
 
-            <com.sendinfo.recyclerviewtable.no_nested.NoRecyclerView
+            <!--            <com.sendinfo.recyclerviewtable.no_nested.NoRecyclerView-->
+            <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvContent"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
