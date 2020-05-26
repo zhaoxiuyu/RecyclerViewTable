@@ -7,11 +7,13 @@
     <Button
         android:id="@+id/but1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="监听同时滚动" />
 
     <Button
         android:id="@+id/but2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="参考 ScrollablePanel 嵌套 recyclerView" />
 
 </LinearLayout>

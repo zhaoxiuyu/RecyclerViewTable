@@ -12,6 +12,9 @@ import com.sendinfo.recyclerviewtable.R
 import com.sendinfo.recyclerviewtable.RoomInfo
 import kotlinx.android.synthetic.main.activity_no_nested.*
 
+/**
+ * 多个recyclerView设置滚动监听，垂直 水平 滚动同时带动其他recyclerView滚动
+ */
 class NoNestedActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
