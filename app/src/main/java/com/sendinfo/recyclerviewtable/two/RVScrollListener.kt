@@ -10,7 +10,11 @@ import java.util.*
 class RVScrollListener : RecyclerView.OnScrollListener(), View.OnTouchListener {
 
     private val hashSet = HashSet<RecyclerView>()
+
+    // 第一个可见视图的位置
     private var firstPos = -1
+
+    // 父视图给定子视图的右边缘偏移量
     private var firstOffset = -1
 
     /**
@@ -22,13 +26,16 @@ class RVScrollListener : RecyclerView.OnScrollListener(), View.OnTouchListener {
         LogUtils.d("dx = $dx ; dy = $dy")
 
         val linearLayoutManager = recyclerView.layoutManager as LinearLayoutManager
+        // 返回第一个可见视图的适配器位置。此位置不包括上次布局传递后调度的适配器更改。
         val pos = linearLayoutManager.findFirstVisibleItemPosition()
+        // 返回给定索引处的子视图
         val firstVisibleItem = linearLayoutManager.getChildAt(0)
         if (firstVisibleItem != null) {
+            // 返回父视图中给定子视图的右边缘
             val firstRight = linearLayoutManager.getDecoratedRight(firstVisibleItem)
-            for (rv in hashSet) {
-                if (recyclerView != rv) {
-                    val layoutManager = rv.layoutManager as LinearLayoutManager
+            for (rvSet in hashSet) {
+                if (recyclerView != rvSet) {
+                    val layoutManager = rvSet.layoutManager as LinearLayoutManager
                     if (layoutManager != null) {
                         firstPos = pos
                         firstOffset = firstRight
@@ -42,12 +49,16 @@ class RVScrollListener : RecyclerView.OnScrollListener(), View.OnTouchListener {
     }
 
     fun addRecyclerView(recyclerView: RecyclerView) {
+        // item改变不会影响RecyclerView的宽高，设置这个值可以避免重新计算
         recyclerView.setHasFixedSize(true)
+
         val layoutManager = recyclerView.layoutManager as LinearLayoutManager
         LogUtils.d("firstPos = $firstPos ; firstOffset = $firstOffset")
         if (layoutManager != null && firstPos > 0 && firstOffset > 0) {
+            // 滚动到指定适配器的位置
             layoutManager.scrollToPositionWithOffset(firstPos + 1, firstOffset)
         }
+        // 把RecyclerView添加到HashSet集合
         hashSet.add(recyclerView)
 
         recyclerView.setOnTouchListener(this)

@@ -8,7 +8,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.blankj.utilcode.util.LogUtils
 import com.sendinfo.recyclerviewtable.DataUtils
 import com.sendinfo.recyclerviewtable.R
 import com.sendinfo.recyclerviewtable.RoomInfo
@@ -98,11 +97,9 @@ class NoNestedActivity : AppCompatActivity(), NoHorizontalScrollView.LeftRight {
     }
 
     override fun left(isLeft: Boolean) {
-        LogUtils.d("滑动到了最左侧")
     }
 
     override fun right(isRight: Boolean) {
-        LogUtils.d("滑动到了最右侧")
     }
 
 }
