@@ -11,6 +11,4 @@ Demo中有两个用法:
 
 ##### 在此只是做个记录，并没有进一步封装，也没有上传jitpack，如果需要可以下载Demo。
 
-
-![效果图](https://note.youdao.com/favicon.ico)
-
+![效果图](https://github.com/zhaoxiuyu/RecyclerViewTable/blob/master/resources/table.gif)
